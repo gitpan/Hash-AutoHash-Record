@@ -1,0 +1,37 @@
+---
+name: Hash-AutoHash-Record
+version: 1.10
+author:
+  - 'Nat Goodman <natg@shore.net>'
+abstract: Object-oriented access to hash with implicitly typed fields
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+build_requires:
+  Exporter: 0
+  Test::Deep: 0
+  Test::More: 0.88
+requires:
+  Carp: 0
+  Hash::AutoHash: 1.1
+  Hash::AutoHash::AVPairsMulti: 1.1
+  Hash::AutoHash::AVPairsSingle: 1.1
+  List::MoreUtils: 1.09
+  Scalar::Util: 1.01
+  Storable: 2.16
+  Tie::Hash: 1
+configure_requires:
+  Module::Build: 0.34
+provides:
+  Hash::AutoHash::Record:
+    file: lib/Hash/AutoHash/Record.pm
+    version: 1.10
+  Hash::AutoHash::Record::helper:
+    file: lib/Hash/AutoHash/Record.pm
+  Hash::AutoHash::Record::tie:
+    file: lib/Hash/AutoHash/Record.pm
+    version: 1.10
+generated_by: Module::Build version 0.34
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
