@@ -1,5 +1,9 @@
 Revision history for Hash-AutoHash-Record
 
+1.11    2010-02-24
+	Fixed version numbers for some dependencies in Build.PL
+	Minor documentation cleanup and reformatting
+
 1.10    2009-10-30
 	This should be stable release assuming CPAN testers find no problems
         Fixed Build prereqs

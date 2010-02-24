@@ -1,5 +1,5 @@
 package Hash::AutoHash::Record;
-our $VERSION='1.10';
+our $VERSION='1.11';
 #################################################################################
 #
 # Author:  Nat Goodman
@@ -47,7 +47,7 @@ sub autohash_clear {
 # Tied hash which implements Hash::AutoHash::Record
 #################################################################################
 package Hash::AutoHash::Record::tie;
-our $VERSION='1.10';
+our $VERSION='1.11';
 use strict;
 use Carp;
 use Tie::Hash;
@@ -321,7 +321,7 @@ Hash::AutoHash::Record - Object-oriented access to hash with implicitly typed fi
 
 =head1 VERSION
 
-Version 1.10
+Version 1.11
 
 =head1 SYNOPSIS
 
@@ -798,9 +798,9 @@ You can do the same thing more concisely with this cryptic one-liner.
 
 Filtering occurs when you run the 'filter' method. It does not occur on every update.
 
-=head2 Functions and methods
+=head2 new
 
-The constructor is 'new'.
+'new' is the constructor.
 
  Title   : new 
  Usage   : $record=new Hash::AutoHash::Record
@@ -811,8 +811,9 @@ The constructor is 'new'.
  Args    : Optional list of key=>value pairs which are used to set initial
            values, types, and defaults for each field of the object.
 
-The next three methods must be invoked on the B<tied object
-implementing the hash>.
+=head2 defaults
+
+This method must be invoked on the B<tied object implementing the hash>.
 
  Title   : defaults 
  Usage   : %defaults=tied(%$record)->defaults
@@ -845,6 +846,10 @@ implementing the hash>.
  Returns : defaults as a list or ARRAY depending on context 
  Args    : key=>value pairs.
 
+=head2 force
+
+This method must be invoked on the B<tied object implementing the hash>.
+
  Title   : force 
  Usage   : tied(%$record)->force('favorites',{colors=>['red','blue'])
            -- OR --
@@ -858,6 +863,9 @@ implementing the hash>.
  Returns : new value, if any, or undef 
  Args    : key and optional new value
 
+=head2 unique
+
+This method must be invoked on the B<tied object implementing the hash>.
 
  Title   : unique 
  Usage   : $unique=tied(%$record)->unique
@@ -894,6 +902,10 @@ implementing the hash>.
            occurs on every update including when default values are restored by 
            clearing the object.
 
+=head2 filter
+
+This method must be invoked on the B<tied object implementing the hash>.
+
  Title   : filter 
  Usage   : $filter=tied(%$record)->filter
            -- OR --
@@ -927,6 +939,8 @@ Function:  Set function used for filtering and perform filtering if true.
            filtering occurs immediately by running all existing elements through
            the filter function.
 
+=head2 Functions inherited from Hash::AutoHash
+
 The following functions are inherited from L<Hash::AutoHash> and,
 except for autohash_clear, operate exactly as there. You must import
 them into your namespace before use.
@@ -936,6 +950,8 @@ them into your namespace before use.
        autohash_clear autohash_delete autohash_each autohash_exists 
        autohash_keys autohash_values 
        autohash_count autohash_empty autohash_notempty)
+
+=head3 autohash_alias
 
 Aliasing a Hash::AutoHash object to a regular hash avoids the need to
 dereference the variable when using hash notation.  As a convenience,
@@ -947,6 +963,8 @@ on whether the given object exists.
  Function: Link $record to %hash such that they will have exactly the same value.
  Args    : Hash::AutoHash::Record object and hash 
  Returns : Hash::AutoHash::Record object
+
+=head3 autohash_tied
 
 You can access the object implementing the tied hash using Perl's
 built-in tied function or the autohash_tied function inherited from
@@ -979,13 +997,15 @@ invoking methods on the tied object.
            Form 4. hash to which Hash::AutoHash::Record object is aliased, 
              method name, optional list of parameters for method
 
-The next two functions provide wholesale manipulation of arguments.
+=head3 autohash_get
 
  Title   : autohash_get
  Usage   : ($name,$hobbies)=autohash_get($record,qw(name hobbies))
  Function: Get values for multiple keys.
  Args    : Hash::AutoHash::Record object and list of keys
  Returns : list of argument values
+
+=head3 autohash_set
 
  Title   : autohash_set
  Usage   : autohash_set($record,name=>'Joe Plumber',first_name=>'Joe')
@@ -996,9 +1016,13 @@ The next two functions provide wholesale manipulation of arguments.
            Form 2. Hash::AutoHash::Record object, ARRAY of keys, ARRAY of values
  Returns : Hash::AutoHash::Record object
 
+=head3 Functions for hash-like operations
+
 The remaining functions provide hash-like operations on
 Hash::AutoHash::Record objects. These are useful if you want to
 avoid hash notation all together.
+
+=head4 autohash_clear
 
  Title   : autohash_clear
  Usage   : autohash_clear($record,@keys)
@@ -1008,17 +1032,23 @@ avoid hash notation all together.
  Args    : Hash::AutoHash::Record object, optional list of keys
  Returns : nothing
 
+=head4 autohash_delete
+
  Title   : autohash_delete
  Usage   : autohash_delete($record,@keys)
  Function: Delete keys and their values from $record.
  Args    : Hash::AutoHash::Record object, list of keys
  Returns : nothing
 
+=head4 autohash_exists
+
  Title   : autohash_exists
  Usage   : if (autohash_exists($record,$key)) { ... }
  Function: Test whether key is present in $record.
  Args    : Hash::AutoHash::Record object, key
  Returns : boolean
+
+=head4 autohash_each
 
  Title   : autohash_each
  Usage   : while (my($key,$value)=autohash_each($record)) { ... }
@@ -1029,11 +1059,15 @@ avoid hash notation all together.
  Returns : list context: next key=>value pair in $record or empty list at end
            scalar context: next key in $record or undef at end
 
+=head4 autohash_keys
+
  Title   : autohash_keys
  Usage   : @keys=autohash_keys($record)
  Function: Get all keys that are present in $record
  Args    : Hash::AutoHash::Record object
  Returns : list of keys
+
+=head4 autohash_values
 
  Title   : autohash_values
  Usage   : @values=autohash_values($record)
@@ -1041,17 +1075,23 @@ avoid hash notation all together.
  Args    : Hash::AutoHash::Record object
  Returns : list of values
 
+=head4 autohash_count
+
  Title   : autohash_count
  Usage   : $count=autohash_count($record)
  Function: Get the number keys that are present in $record
  Args    : Hash::AutoHash::Record object
  Returns : number
 
+=head4 autohash_empty
+
  Title   : autohash_empty
  Usage   : if (autohash_empty($record)) { ... }
  Function: Test whether $record is empty
  Args    : Hash::AutoHash::Record object
  Returns : boolean
+
+=head4 autohash_notempty
 
  Title   : autohash_notempty
  Usage   : if (autohash_notempty($record)) { ... }
