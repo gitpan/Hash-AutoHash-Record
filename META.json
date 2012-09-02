@@ -1,0 +1,63 @@
+{
+   "abstract" : "Object-oriented access to hash with implicitly typed fields",
+   "author" : [
+      "Nat Goodman <natg@shore.net>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.112150",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Hash-AutoHash-Record",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Exporter" : "5.58",
+            "Test::Deep" : "0.098",
+            "Test::More" : "0.88"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.4"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : 0,
+            "Hash::AutoHash" : "1.1",
+            "Hash::AutoHash::AVPairsMulti" : "1.1",
+            "Hash::AutoHash::AVPairsSingle" : "1.1",
+            "List::MoreUtils" : "0.09",
+            "Scalar::Util" : "1.01",
+            "Storable" : "2.16",
+            "Tie::Hash" : "1"
+         }
+      }
+   },
+   "provides" : {
+      "Hash::AutoHash::Record" : {
+         "file" : "lib/Hash/AutoHash/Record.pm",
+         "version" : "1.12"
+      },
+      "Hash::AutoHash::Record::helper" : {
+         "file" : "lib/Hash/AutoHash/Record.pm",
+         "version" : 0
+      },
+      "Hash::AutoHash::Record::tie" : {
+         "file" : "lib/Hash/AutoHash/Record.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "1.12"
+}

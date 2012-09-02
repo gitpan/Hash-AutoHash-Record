@@ -12,26 +12,27 @@ my $class = Module::Build->subclass
      },
   );
 
-my $builder = $class->new(
-    module_name         => 'Hash::AutoHash::Record',
-    license             => 'perl',
-    dist_author         => q{Nat Goodman <natg@shore.net>},
-    dist_version_from   => 'lib/Hash/AutoHash/Record.pm',
-    build_requires =>   {'Test::More' => 0.88,
-		         'Test::Deep' => 0.098,
-		          'Exporter' => 5.58,
-		        },
-    requires =>         {'Carp' => 0,
-		         'Scalar::Util' => 1.01,
-			 'List::MoreUtils' => 0.09,
-			 'Storable' => 2.16,
-		         'Tie::Hash' => 1.00,
-		         'Hash::AutoHash' => 1.10,
-		         'Hash::AutoHash::AVPairsSingle' => 1.10,
-		         'Hash::AutoHash::AVPairsMulti' => 1.10,
-		        },
-    add_to_cleanup      => [ 'Hash-AutoHash-Record-*' ],
-    create_makefile_pl => 'passthrough',
-);
+my $builder = $class->new
+  (module_name         => 'Hash::AutoHash::Record',
+   license             => 'perl',
+   dist_author         => q{Nat Goodman <natg@shore.net>},
+   configure_requires=>{'Module::Build' => 0.4,
+		       },
+   build_requires =>   {'Test::More' => 0.88,
+			'Test::Deep' => 0.098,
+			'Exporter' => 5.58,
+		       },
+   requires =>         {'Carp' => 0,
+			'Scalar::Util' => 1.01,
+			'List::MoreUtils' => 0.09,
+			'Storable' => 2.16,
+			'Tie::Hash' => 1.00,
+			'Hash::AutoHash' => 1.10,
+			'Hash::AutoHash::AVPairsSingle' => 1.10,
+			'Hash::AutoHash::AVPairsMulti' => 1.10,
+		       },
+   add_to_cleanup      => [ 'Hash-AutoHash-Record-*' ],
+   create_makefile_pl => 'small',
+  );
 
 $builder->create_build_script();
