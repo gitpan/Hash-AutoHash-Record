@@ -18,13 +18,13 @@ name: Hash-AutoHash-Record
 provides:
   Hash::AutoHash::Record:
     file: lib/Hash/AutoHash/Record.pm
-    version: 1.12
+    version: 1.13
   Hash::AutoHash::Record::helper:
     file: lib/Hash/AutoHash/Record.pm
-    version: 0
+    version: 1.13
   Hash::AutoHash::Record::tie:
     file: lib/Hash/AutoHash/Record.pm
-    version: 0
+    version: 1.13
 requires:
   Carp: 0
   Hash::AutoHash: 1.1
@@ -36,4 +36,4 @@ requires:
   Tie::Hash: 1
 resources:
   license: http://dev.perl.org/licenses/
-version: 1.12
+version: 1.13
