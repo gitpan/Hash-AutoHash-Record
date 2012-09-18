@@ -1,5 +1,5 @@
 package Hash::AutoHash::Record;
-our $VERSION='1.13';
+our $VERSION='1.14';
 $VERSION=eval $VERSION;		# I think this is the accepted idiom..
 
 #################################################################################
@@ -27,7 +27,7 @@ our @SUBCLASS_EXPORT_OK=$helper_class->SUBCLASS_EXPORT_OK;
 # functions herein (except _new) are exportable by Hash::AutoHash::Args
 #################################################################################
 package Hash::AutoHash::Record::helper;
-our $VERSION='1.13';
+our $VERSION=$Hash::AutoHash::Record::VERSION;
 use strict;
 use Carp;
 BEGIN {
@@ -50,7 +50,7 @@ sub autohash_clear {
 # Tied hash which implements Hash::AutoHash::Record
 #################################################################################
 package Hash::AutoHash::Record::tie;
-our $VERSION='1.13';
+our $VERSION=$Hash::AutoHash::Record::VERSION;
 use strict;
 use Carp;
 use Tie::Hash;
@@ -324,7 +324,7 @@ Hash::AutoHash::Record - Object-oriented access to hash with implicitly typed fi
 
 =head1 VERSION
 
-Version 1.13
+Version 1.14
 
 =head1 SYNOPSIS
 
