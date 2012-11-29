@@ -463,17 +463,22 @@ my(@keys,@values);
 my $record=new Hash::AutoHash::Record name=>'Joe',hobbies=>[qw(chess cooking)];
 cmp_record('create example again',$record,{name=>'Joe',hobbies=>[qw(chess cooking)]});
 while (my($key,$value)=autohash_each($record)) { push(@keys,$key); push(@values,$value); }
-cmp_deeply(\@keys,[qw(name hobbies)],'autohash_each form 1 (keys)');
-cmp_deeply(\@values,['Joe',[qw(chess cooking)]],'autohash_each form 1 (values)');
+# cmp_deeply(\@keys,[qw(name hobbies)],'autohash_each form 1 (keys)');
+# cmp_deeply(\@values,['Joe',[qw(chess cooking)]],'autohash_each form 1 (values)');
+cmp_set(\@keys,[qw(name hobbies)],'autohash_each form 1 (keys)');
+cmp_set(\@values,['Joe',[qw(chess cooking)]],'autohash_each form 1 (values)');
 my(@keys,@values);
 while (my $key=autohash_each($record)) { push(@keys,$key); }
-cmp_deeply(\@keys,[qw(name hobbies)],'autohash_each form 2 (keys)');
+# cmp_deeply(\@keys,[qw(name hobbies)],'autohash_each form 2 (keys)');
+cmp_set(\@keys,[qw(name hobbies)],'autohash_each form 2 (keys)');
 
 my(@keys,@values);
 @keys=autohash_keys($record);
-cmp_deeply(\@keys,[qw(name hobbies)],'autohash_keys');
+# cmp_deeply(\@keys,[qw(name hobbies)],'autohash_keys');
+cmp_set(\@keys,[qw(name hobbies)],'autohash_keys');
 @values=autohash_values($record);
-cmp_deeply(\@values,['Joe',[qw(chess cooking)]],'autohash_values');
+# cmp_deeply(\@values,['Joe',[qw(chess cooking)]],'autohash_values');
+cmp_set(\@values,['Joe',[qw(chess cooking)]],'autohash_values');
 
 my $count;
 $count=autohash_count($record);

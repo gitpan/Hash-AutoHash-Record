@@ -21,6 +21,7 @@ my $builder = $class->new
    build_requires =>   {'Test::More' => 0.88,
 			'Test::Deep' => 0.098,
 			'Exporter' => 5.58,
+			perl => '5.17.6', # temporarily to smoke out hash randomization bugs...
 		       },
    requires =>         {'Carp' => 0,
 			'Scalar::Util' => 1.01,
