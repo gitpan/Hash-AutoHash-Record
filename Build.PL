@@ -21,7 +21,6 @@ my $builder = $class->new
    build_requires =>   {'Test::More' => 0.88,
 			'Test::Deep' => 0.098,
 			'Exporter' => 5.58,
-			perl => '5.17.6', # temporarily to smoke out hash randomization bugs...
 		       },
    requires =>         {'Carp' => 0,
 			'Scalar::Util' => 1.01,
@@ -29,8 +28,8 @@ my $builder = $class->new
 			'Storable' => 2.16,
 			'Tie::Hash' => 1.00,
 			'Hash::AutoHash' => 1.15,
-			'Hash::AutoHash::AVPairsSingle' => 1.14,
-			'Hash::AutoHash::AVPairsMulti' => 1.14,
+			'Hash::AutoHash::AVPairsSingle' => 1.16,
+			'Hash::AutoHash::AVPairsMulti' => 1.16,
 		       },
    add_to_cleanup      => [ 'Hash-AutoHash-Record-*' ],
    create_makefile_pl => 'small',
