@@ -4,7 +4,7 @@
       "Nat Goodman <natg@shore.net>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "Module::Build version 0.4007, CPAN::Meta::Converter version 2.120351",
    "license" : [
       "perl_5"
    ],
@@ -16,33 +16,46 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Exporter" : "5.58",
-            "Test::Deep" : "0.098",
-            "Test::More" : "0.88"
+            "Carp" : "1.2",
+            "Exporter" : "5.68",
+            "File::Spec" : "3.4",
+            "Hash::AutoHash" : "1.16",
+            "Hash::AutoHash::AVPairsMulti" : "1.16",
+            "Hash::AutoHash::AVPairsSingle" : "1.16",
+            "List::MoreUtils" : "0.33",
+            "Test::Deep" : "0.11",
+            "Test::More" : "0.98",
+            "Test::Pod" : "1.48",
+            "Test::Pod::Content" : "v0.0.6"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.4"
+            "Module::Build" : "0.4007"
          }
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
-            "Hash::AutoHash" : "1.15",
+            "Carp" : "1.2",
+            "Cwd" : "3.4",
+            "Exporter" : "5.68",
+            "Fcntl" : "1.11",
+            "Hash::AutoHash" : "1.16",
             "Hash::AutoHash::AVPairsMulti" : "1.16",
             "Hash::AutoHash::AVPairsSingle" : "1.16",
-            "List::MoreUtils" : "0.09",
-            "Scalar::Util" : "1.01",
-            "Storable" : "2.16",
-            "Tie::Hash" : "1"
+            "Hash::AutoHash::MultiValued" : "1.16",
+            "List::MoreUtils" : "0.33",
+            "List::Util" : "1.32",
+            "Storable" : "2.3",
+            "Tie::ToObject" : "0.03",
+            "XSLoader" : "0.16"
          }
       }
    },
    "provides" : {
       "Hash::AutoHash::Record" : {
          "file" : "lib/Hash/AutoHash/Record.pm",
-         "version" : "1.16"
+         "version" : "1.17_01"
       },
       "Hash::AutoHash::Record::helper" : {
          "file" : "lib/Hash/AutoHash/Record.pm",
@@ -53,11 +66,11 @@
          "version" : 0
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "license" : [
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "1.16"
+   "version" : "1.17_01"
 }
