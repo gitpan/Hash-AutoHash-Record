@@ -19,9 +19,9 @@
             "Carp" : "1.2",
             "Exporter" : "5.68",
             "File::Spec" : "3.4",
-            "Hash::AutoHash" : "1.16",
-            "Hash::AutoHash::AVPairsMulti" : "1.16",
-            "Hash::AutoHash::AVPairsSingle" : "1.16",
+            "Hash::AutoHash" : "1.17",
+            "Hash::AutoHash::AVPairsMulti" : "1.17",
+            "Hash::AutoHash::AVPairsSingle" : "1.17",
             "List::MoreUtils" : "0.33",
             "Test::Deep" : "0.11",
             "Test::More" : "0.98",
@@ -40,10 +40,10 @@
             "Cwd" : "3.4",
             "Exporter" : "5.68",
             "Fcntl" : "1.11",
-            "Hash::AutoHash" : "1.16",
-            "Hash::AutoHash::AVPairsMulti" : "1.16",
-            "Hash::AutoHash::AVPairsSingle" : "1.16",
-            "Hash::AutoHash::MultiValued" : "1.16",
+            "Hash::AutoHash" : "1.17",
+            "Hash::AutoHash::AVPairsMulti" : "1.17",
+            "Hash::AutoHash::AVPairsSingle" : "1.17",
+            "Hash::AutoHash::MultiValued" : "1.17",
             "List::MoreUtils" : "0.33",
             "List::Util" : "1.32",
             "Storable" : "2.3",
@@ -55,7 +55,7 @@
    "provides" : {
       "Hash::AutoHash::Record" : {
          "file" : "lib/Hash/AutoHash/Record.pm",
-         "version" : "1.17_01"
+         "version" : "1.17"
       },
       "Hash::AutoHash::Record::helper" : {
          "file" : "lib/Hash/AutoHash/Record.pm",
@@ -66,11 +66,11 @@
          "version" : 0
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "license" : [
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "1.17_01"
+   "version" : "1.17"
 }
